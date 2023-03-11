@@ -28,35 +28,27 @@ public class Permutations_II {
 				map.put(nums[i], map.get(nums[i]) + 1);
 			}
 		}
-		
 		permutation(result, map, nums, new ArrayList<>());
-
 		return result;
 
 	}
 
 	public static void permutation(List<List<Integer>> result, HashMap<Integer, Integer> map, int[] nums,
 			List<Integer> list) {
-
 		if (list.size() == nums.length) {
 			result.add(new ArrayList<>(list));
 			return;
 		}
-
 		for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
-
 			int key = entry.getKey();
 			int value = entry.getValue();
-
 			if (value == 0)
 				continue;
-
 			list.add(key);
 			map.put(key, value - 1);
 			permutation(result, map, nums, list);
 			list.remove(list.size() - 1);
 			map.put(key, value);
-
 		}
 	}
 
