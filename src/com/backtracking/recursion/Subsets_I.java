@@ -28,11 +28,9 @@ public class Subsets_I {
         result.add(new ArrayList<Integer>(list));
 
         for (int i = index; i < array.length; i++) {
-
             list.add(array[i]);
             helperMethod(array, result, list, i + 1);
             list.remove(list.size() - 1);
-
         }
 
     }
